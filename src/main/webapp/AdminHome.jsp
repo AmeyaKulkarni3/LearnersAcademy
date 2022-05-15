@@ -2,9 +2,10 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Insert title here</title>
+<title>Learner's Academy</title>
 </head>
 <body>
+<%@include file="header.jsp"%>
 <div style="text-align:center">
 <form>
 	<h1>Menu</h1>
@@ -16,7 +17,7 @@
 	<a href="studentList.jsp">List Students</a><br><br>
 	<a href="subjectList.jsp">List Subjects</a><br><br>
 	<a href="teacherList.jsp">List Teachers</a><br><br>
-	<a href="classReport.jsp">Class Report</a><br><br>
+	<a href="classList.jsp">List Classes</a><br><br>
 </form>
 </div>
 </body>

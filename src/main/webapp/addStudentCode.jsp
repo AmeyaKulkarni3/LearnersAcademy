@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-<%@ page import="com.learnersacademy.dao.StudentDAO"%>
-<%@ page import="com.learnersacademy.entity.Student"%>
+<%@ page import="com.learnersacademy.dao.*"%>
+<%@ page import="com.learnersacademy.entity.*"%>
 <%@ page import="java.time.LocalDate" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%@ page import="java.time.format.DateTimeFormatter" %>
@@ -20,7 +20,9 @@
 	System.out.println(dob);
 	String address = request.getParameter("address");
 	String phone = request.getParameter("phone");
-	String className = request.getParameter("class");
+	int classId = Integer.parseInt(request.getParameter("course"));
+	ClassDAO classDao = new ClassDAO();
+	ClassOffered co = classDao.getClassById(classId);
 	Student student = new Student();
 	student.setFistName(firstName);
 	student.setLastName(lastName);
@@ -29,6 +31,7 @@
 	student.setDateOfBirth(date);
 	student.setAddress(address);
 	student.setPhone(phone);
+	student.setClassJoined(co);
 	System.out.println(student);
 	StudentDAO dao = new StudentDAO();
 	int row = dao.createStudent(student);

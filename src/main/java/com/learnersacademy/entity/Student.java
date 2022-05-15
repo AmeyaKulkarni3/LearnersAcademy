@@ -8,47 +8,53 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="student")
+@Table(name = "student")
 public class Student {
-	
+
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-	private int studentId;
-	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+
 	@Column(nullable = false)
 	private String fistName;
-	
+
 	@Column(nullable = false)
 	private String lastName;
-	
+
 	@Column(nullable = false)
 	private LocalDate dateOfBirth;
-	
+
 	@Column(nullable = false)
 	private String address;
-	
+
 	@Column(nullable = false)
 	private String phone;
-	
+
 	@ManyToOne
-	@JoinColumn(name="class_offered_id", nullable = true)
 	private ClassOffered classJoined;
 
 	public Student() {
-		
+
 	}
 
-	public int getStudentId() {
-		return studentId;
+	public int getId() {
+		return id;
 	}
 
-	public void setStudentId(int id) {
-		this.studentId = id;
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public void setClassJoined(ClassOffered classJoined) {
+		this.classJoined = classJoined;
+	}
+
+	public ClassOffered getClassJoined() {
+		return classJoined;
 	}
 
 	public String getFistName() {
@@ -91,20 +97,11 @@ public class Student {
 		this.phone = phone;
 	}
 
-	public ClassOffered getClassJoined() {
-		return classJoined;
-	}
-
-	public void setClassJoined(ClassOffered classJoined) {
-		this.classJoined = classJoined;
-	}
-
 	@Override
 	public String toString() {
-		return "Student [fistName=" + fistName + ", lastName=" + lastName + ", dateOfBirth=" + dateOfBirth
-				+ ", address=" + address + ", phone=" + phone + ", classJoined=" + classJoined + "]";
+		return "Student [id=" + id + ", fistName=" + fistName + ", lastName=" + lastName + ", dateOfBirth="
+				+ dateOfBirth + ", address=" + address + ", phone=" + phone + ", classJoined="
+				+ classJoined.getClassName() + "]";
 	}
-	
-	
 
 }

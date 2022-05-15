@@ -11,10 +11,10 @@
 </head>
 <body>
 	<%
+	ClassDAO dao = new ClassDAO();
 	String name = request.getParameter("className");
 	ClassOffered co = new ClassOffered();
 	co.setClassName(name);
-	ClassDAO dao = new ClassDAO();
 	int id = dao.createClass(co);
 	PrintWriter pw = response.getWriter();
 	if (id > 0) {

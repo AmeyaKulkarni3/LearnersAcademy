@@ -28,4 +28,24 @@
     <servlet-name>AdminHome</servlet-name>
     <url-pattern>/AdminHome</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AddClassServlet</display-name>
+    <servlet-name>AddClassServlet</servlet-name>
+    <servlet-class>com.learnersacademy.web.AddClassServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AddClassServlet</servlet-name>
+    <url-pattern>/AddClassServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>SubjectsAndTeachers</display-name>
+    <servlet-name>SubjectsAndTeachers</servlet-name>
+    <servlet-class>com.learnersacademy.web.SubjectsAndTeachers</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>SubjectsAndTeachers</servlet-name>
+    <url-pattern>/SubjectsAndTeachers</url-pattern>
+  </servlet-mapping>
 </web-app>

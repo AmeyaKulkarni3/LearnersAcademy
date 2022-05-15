@@ -1,9 +1,12 @@
 package com.learnersacademy.entity;
 
 import java.util.List;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -19,39 +22,45 @@ public class ClassOffered {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	private int classId;
+	private int id;
 	
 	@Column
 	private String className;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(
 			name="classes_subjects",
 			joinColumns = @JoinColumn(name="class_id"),
 			inverseJoinColumns = @JoinColumn(name="subject_id"))
 	private List<Subject> subjects;
 	
-	@ManyToMany
+	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(
 			name="classes_teachers",
 			joinColumns = @JoinColumn(name="class_id"),
 			inverseJoinColumns = @JoinColumn(name="teacher_id"))
 	private List<Teacher> teachers;
 	
-	@OneToMany(mappedBy="classJoined")
+	@OneToMany(mappedBy="classJoined", cascade = CascadeType.PERSIST)
 	private List<Student> students;
 
 	public ClassOffered() {
 		
 	}
+	
+	
 
-	public int getClassId() {
-		return classId;
+	public int getId() {
+		return id;
 	}
 
-	public void setClassId(int id) {
-		this.classId = id;
+
+
+	public void setId(int id) {
+		this.id = id;
 	}
+
+
 
 	public String getClassName() {
 		return className;
@@ -84,6 +93,15 @@ public class ClassOffered {
 	public void setStudents(List<Student> students) {
 		this.students = students;
 	}
+
+
+
+	@Override
+	public String toString() {
+		return "ClassOffered [id=" + id + ", className=" + className + "]";
+	}
+	
+	
 		
 
 }
