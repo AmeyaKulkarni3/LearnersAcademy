@@ -20,5 +20,6 @@
 	<a href="classList.jsp">List Classes</a><br><br>
 </form>
 </div>
+<a href="index.jsp">Logout</a>
 </body>
 </html>

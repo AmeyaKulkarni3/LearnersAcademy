@@ -22,7 +22,7 @@ table.center{
 <body>
 	<%@include file="header.jsp"%>
 	<div style="text-align: center">
-		<h1>Students Enrolled</h1>
+		<h1>Teachers</h1>
 		<table border=1 class="center">
 			<%
 			TeacherDAO dao = new TeacherDAO();
